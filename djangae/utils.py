@@ -6,24 +6,7 @@ from socket import socket, SHUT_RDWR
 
 
 def application_id():
-    from google.appengine.api import app_identity
-
-    try:
-        result = app_identity.get_application_id()
-    except AttributeError:
-        result = None
-
-    if not result:
-        # Apparently we aren't running live, probably inside a management command
-        from google.appengine.api import appinfo
-
-        info = appinfo.LoadSingleAppInfo(open(os.path.join(find_project_root(), "app.yaml")))
-
-        result = "dev~" + info.application
-        os.environ['APPLICATION_ID'] = result
-        result = app_identity.get_application_id()
-
-    return result
+    return 'bosco-bot'
 
 
 def appengine_on_path():
