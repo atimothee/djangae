@@ -86,7 +86,8 @@ def find_project_root():
             else:
                 path = parent
 
-    raise RuntimeError("Unable to locate app.yaml. Did you add it to skip_files?")
+    #raise RuntimeError("Unable to locate app.yaml. Did you add it to skip_files?")
+    return ''
 
 
 def get_in_batches(queryset, batch_size=10):
